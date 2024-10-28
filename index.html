@@ -260,7 +260,7 @@
 <p class="subheader">Easily find the tools you need with AI-powered recommendations</p>
 <p>We help small businesses like yours navigate the complex world of digital tools—recommending only what works.</p>
 <div class="cta">
- <form action="https://getform.io/f/bkkkgoob" method="POST">
+ <form id="getform" form action="https://getform.io/f/bkkkgoob" method="POST">
         <input type="email" name="email" placeholder="Enter your email" required>
         <button type="submit">Get Started with AI</button>
     </form>
@@ -560,31 +560,6 @@
         }
     </style>
 </head>
-        <script>
-    document.getElementById("getform").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        var form = event.target;
-        var data = new FormData(form);
-
-        fetch(form.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-        }).then(function(response) {
-            if (response.ok) {
-                document.getElementById("confirmation-message").style.display = "block";
-                form.reset();
-            } else {
-                alert("There was an issue with your submission. Please try again.");
-            }
-        }).catch(function(error) {
-            alert("Oops! There was a problem submitting your form.");
-        });
-    });
-</script>
 <body>
 <header>
 <h1>Integration Genie for Startups: Find the Right Tech Stack with AI</h1>
@@ -633,3 +608,30 @@
 <h3>Launch Your MVP</h3>
 <p>With the right tools in place, easily build and launch your MVP to attract early adopters.</p>
 </div>
+<script>
+       document.getElementById("getform").addEventListener("submit", function(event) {
+           event.preventDefault(); // Prevent default form submission
+
+           var form = event.target;
+           var data = new FormData(form);
+
+           fetch(form.action, {
+               method: form.method,
+               body: data,
+               headers: {
+                   'Accept': 'application/json'
+               }
+           }).then(function(response) {
+               if (response.ok) {
+                   document.getElementById("confirmation-message").style.display = "block";
+                   form.reset();
+               } else {
+                   alert("There was an issue with your submission. Please try again.");
+               }
+           }).catch(function(error) {
+               alert("Oops! There was a problem submitting your form.");
+           });
+       });
+   </script>
+</body>
+</html>
